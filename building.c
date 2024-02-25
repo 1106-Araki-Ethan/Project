@@ -9,32 +9,47 @@ int main(){
 	do{
 		int height, floors;
 	
+		// prints message, then user enters number of floors
 		printf("Enter the number of floors in your building: ");
 		scanf(" %d", &floors);
-		// prints message, then user enters number of floors
+		
+		//loops message until user inputs correct value of greater then 0
 			while (floors <= 0){
 				printf("Invalid number of floors. Try Again: ");
 				scanf(" %d", &floors);
 				}
-				//loops message until user inputs correct value of greater then 0
-		
+				
+		// prints message, the user enters height of floors
 		printf("Enter the height of your floors: ");
 		scanf(" %d", &height);
-		// prints message, the user enters height of floors
 		
-		printf("===============\n");
-		//prints the roof of building
 		
-		if (height < 3)
-			 height = 3;
-		for(int i = 0; i < floors; i++){
+		printf("===============\n"); //prints the roof of building
+		
+		if (height < 3) height = 3;
+		
 		//loop for sides of buildings using floors input value
-	
-				for (int n = 0; n < height; n++){
-			
-		  			printf("|             |\n");
-			}}
-	
+		for(int i = 1; i <= floors; i++){
+			if(i!= floors){ //if not the bottom floors
+				//print walls
+				for (int n = 1; n <= height; n++){
+					
+		  			printf("|             |\n");		
+			}
+				//print floor divider
+				printf("|-------------|\n");
+		}
+		int floorheight = height-3;
+			else{
+				for(int j = 0; j <= floorheight; j++){
+					printf("|             |\n");
+				}
+				}	
+				
+				printf("|     ___     |\n");
+				printf("|    |   |    |\n");
+				printf("|    |  o|    |\n");
+				printf("|====|===|====|\n"); 
 		printf("Build Another? ");
 		scanf(" %c", &c);
 		//prompts user if they want to build another building
