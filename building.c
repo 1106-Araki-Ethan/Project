@@ -7,7 +7,7 @@
 int main(){
 	char c;
 	do{
-		int number, floors;
+		int height, floors;
 	
 		printf("Enter the number of floors in your building: ");
 		scanf(" %d", &floors);
@@ -17,41 +17,23 @@ int main(){
 				scanf(" %d", &floors);
 				}
 				//loops message until user inputs correct value of greater then 0
+		
 		printf("Enter the height of your floors: ");
-		scanf(" %d", &number);
+		scanf(" %d", &height);
 		// prints message, the user enters height of floors
+		
 		printf("===============\n");
 		//prints the roof of building
-	
+		
+		if (height < 3)
+			 height = 3;
 		for(int i = 0; i < floors; i++){
 		//loop for sides of buildings using floors input value
 	
-			if(number >=3){	
-			// executes if input for number is greater or equal to 3
-		
-				for (int n = 0; n < number; n++){
+				for (int n = 0; n < height; n++){
 			
 		  			printf("|             |\n");
 			}}
-		
-			else if (number < 3){
-			//executes if input for number is less then three
-				printf("|             |\n");
-				printf("|             |\n");
-				printf("|             |\n");
-			}
-	
-		if (i != floors ){
-		//executes if i does not equal floors input
-			printf("|-------------| \n");
-			}
-	
-	
-		else if (i == floors){
-		//executes if i does equal floors input
-			printf("|====|===|====|\n");
-			}
-			}
 	
 		printf("Build Another? ");
 		scanf(" %c", &c);
