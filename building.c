@@ -35,21 +35,23 @@ int main(){
 				for (int n = 1; n <= height; n++){
 					
 		  			printf("|             |\n");		
+				}
 			}
+		
 				//print floor divider
 				printf("|-------------|\n");
-		}
-		int floorheight = height-3;
+		
 			else{
+				int floorheight = height-3;
 				for(int j = 0; j <= floorheight; j++){
 					printf("|             |\n");
 				}
-				}	
-				
-				printf("|     ___     |\n");
-				printf("|    |   |    |\n");
-				printf("|    |  o|    |\n");
-				printf("|====|===|====|\n"); 
+			}
+		}	
+			printf("|     ___     |\n");
+			printf("|    |   |    |\n");
+			printf("|    |  o|    |\n");
+			printf("|====|===|====|\n"); 
 		printf("Build Another? ");
 		scanf(" %c", &c);
 		//prompts user if they want to build another building
