@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+#define LETTERS 50
+int main(){
+
+
+
+	char phrase[LETTERS];
+	
+	//loop to go through array
+	for(int i = 0; phrase[i] != '\0'; i++){ 
+		if(phrase[i] >= 'a' && phrase[i] <= 'z'){
+			lower[i] = phrase[i];	
+		}
+		else if(phrase[i] >= 'A' && phrase[i] <= 'Z'){
+			Cap[i] = phrase[i];	
+		}
+	
+	}
+	Cap[i] = '\0';
+	lower[i] = '\0';
+	
+	//display letters
+	printf("%s\n",  lower);
+	printf("%s\n", Cap);
+	
+	return 0
+}

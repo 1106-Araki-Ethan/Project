@@ -36,14 +36,13 @@ int main(){
 					
 		  			printf("|             |\n");		
 				}
-			}
-		
 				//print floor divider
 				printf("|-------------|\n");
 		
+			}
 			else{
 				int floorheight = height-3;
-				for(int j = 0; j <= floorheight; j++){
+				for(int j = 0; j < floorheight; j++){
 					printf("|             |\n");
 				}
 			}
@@ -55,7 +54,7 @@ int main(){
 		printf("Build Another? ");
 		scanf(" %c", &c);
 		//prompts user if they want to build another building
-		} while( c =='Y');
+		} while( (c =='Y')||(c=='y'));
 	//all code loops again until user inputs Y
 	return 0;
 }
