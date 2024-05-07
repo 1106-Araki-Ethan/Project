@@ -9,7 +9,7 @@
 int main(){ 
 
 	//variables
-	char phrase[LETTERS], Cap[LETTERS+1], lower[LETTERS+1];
+	char phrase[LETTERS], Cap[LETTERS], lower[LETTERS], punc[LETTERS];
 	int number, i;
 	
 	//phrase inputs
@@ -19,30 +19,23 @@ int main(){
 	int lowercase = 0, capital = 0, puncuation = 0;
 	
 	//Loop for showing amount of each variable and also to display each variable. 
-	for(int i = 0; phrase[i] != '\0'; i++){
+	for( i = 0; phrase[i] != '\0'; i++){
 		if(phrase[i] >= 'a' && phrase[i] <= 'z'){
-			lower[i] = phrase[i];
+			lower[lowercase] = phrase[i];
 			lowercase++;
 			
 		}
 		else if(phrase[i] >= 'A' && phrase[i] <= 'Z'){
-			Cap[i] = phrase[i];
+			Cap[capital] = phrase[i];
 			capital++;
 			
 		}
 		else if((phrase[i] >= '!' && phrase[i] <= '@')||(phrase[i] >= '[' && phrase[i] <= '`')||(phrase[i] >= '{' && phrase[i] <= '~')){
+			punc[puncuation] = phrase[i];
 			puncuation++;
 		}
 	
 	}
-	
-	//for debugging
-	Cap[i] = '\0';
-	lower[i] = '\0';
-	
-	//printf statements to help wtih debugging
-	printf("%s\n",  lower);
-	printf("%s\n", Cap);
 	
 	
 	//do while loop for menu
@@ -56,18 +49,22 @@ int main(){
 		scanf("%d", &number);
 	
 	//if else statements for each input number	
-		if(number == 1){
+		if(number == 2){
 			printf("\n");
-			printf("LOWERCASE: %d\n", lowercase);
+			printf("LOWERCASE: %s \n", lower);
 			printf("\n");
 		
 		}
-		else if(number == 2){
-			printf("CAPITAL: %d\n", capital);
+		else if(number == 1){
+			printf("\n");
+			printf("CAPITAL: %s \n", Cap);
+			printf("\n");
 		}
 		
 		else if(number == 3){
-			printf("PUNCUATION: %d\n", puncuation);
+			printf("\n");
+			printf("PUNCUATION: %s \n", punc);
+			printf("\n");
 		}
 		
 		else if(number == 0){
