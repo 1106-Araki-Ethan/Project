@@ -90,9 +90,15 @@ void displayMenu2(int *choice2, char image[][C], int row, int col, char fileName
 
 // Placeholder functions for image manipulation
 void loadImage(char image[][C], int row, int col, char fileName[]) {
+   
+   
+   
     printf("What is the name of the image file: ");
     scanf("%s", fileName);
     FILE *pf1 = fopen(fileName, "r");
+    
+    
+    
     if (pf1 == NULL) {
         printf("Unable to open file.\n");
     } else {
@@ -113,14 +119,29 @@ void loadImage(char image[][C], int row, int col, char fileName[]) {
 
 void displayImage(char image[][C], int row, int col, char fileName[]) {
     FILE *pf1 = fopen(fileName, "r");
-    for (row = 0; row < R && fgets(image[row], C, pf1) != NULL; row++) {
+    int newlines = 0, columns = 0, firstNewline = 0, c;
+    while(c = fgetc(pf1)){
+    	if(c == EOF){
+    		break;
+    	}
+    	if(firstNewline == 0){
+    		columns++;
+	}
+	if(c == '\n'){
+		newlines++;
+		firstNewline = 1;
+	}
+    }
+    
+    
+    for (row = 0; row < newlines && fgets(image[row], columns, pf1) != NULL; row++) {
         for (col = 0; image[row][col] != '\n' && image[row][col] != '\0'; col++) {
         }
         image[row][col] = '\0';
     }
    		
-   		for (row = 0; row < R; row++) {
-			for (col = 0; col < C; col++) {
+   		for (row = 0; row < newlines; row++) {
+			for (col = 0; col < columns; col++) {
 				switch(image[row][col]){
            				case '1':
            					image[row][col] = '.';
@@ -262,10 +283,28 @@ void rotateImage(char image[][C], int row, int col) {
 
 void writeImageToFile(char image[][C], int row, int col, char fileName[]) {
     
+	
+	
 	char choice3, fileName2[21];
+	int newlines = 0, columns = 0, firstNewline = 0, c;
 	printf("Would you like to save?(y/n): ");
 	scanf(" %c", &choice3);
-  
+  	FILE *pf2 = fopen(fileName2, "w");
+  	
+  	while(c = fgetc(pf2)){
+    	if(c == EOF){
+    		break;
+    	}
+    	if(firstNewline == 0){
+    		columns++;
+	}
+	if(c == '\n'){
+		newlines++;
+		firstNewline = 1;
+	}
+    }
+	
+	
 	if(choice3 == 'y'){
 		
 		
@@ -273,10 +312,8 @@ void writeImageToFile(char image[][C], int row, int col, char fileName[]) {
    		scanf("%s", fileName2);
    		printf("\n");
 		
-		FILE *pf2 = fopen(fileName2, "w");
-		
-		for (row = 0; row < R; row++) {
-			for (col = 0; col < C; col++) {
+		for (row = 0; row < newlines; row++) {
+			for (col = 0; col < columns; col++) {
 				switch(image[row][col]){
            				case '.':
            					image[row][col] = 1;
